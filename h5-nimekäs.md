@@ -62,9 +62,49 @@ luodaan index.html tiedosto ja lisätään pätkä html koodia testausta varten.
 
 ![image](https://github.com/user-attachments/assets/e3a4e55e-7d03-4615-beb3-059067b1568e)
 
+DNS-palvelu vei pitkään, noin tunnin, ennenkuin se alkoi toimimaan.
+
+![image](https://github.com/user-attachments/assets/d2d28db1-4de8-4b09-9627-883c9b79373d)
 
 ## Tehtävä c)
+
+kopioidaan index.html tiedostosta kaksi uutta pohjaa nimillä blog.html ja projects.html
+
+![image](https://github.com/user-attachments/assets/90769b5e-5c23-4309-8cd8-2d2b88b99af1)
+
+Lisäsin linkit sivulta toiselle. Tämä tapahtuu elementeillä 'nav'. Lisäsin vastaavat elementit jokaiselle .html -tiedostolle ja vaihdoin otsikot jokaista sivua vastaaviksi.
+
+![image](https://github.com/user-attachments/assets/4aeab35c-7f3c-4a1c-9f0b-af0c12a906c3)
+
+
+![image](https://github.com/user-attachments/assets/771729d1-fb0b-4a17-8bbd-bae3219fabf2)
+
+
 ## Tehtävä d)
+
+Alidomainit. Loin A-tietueen blog.arileppanen.me osoittamaan palvelimen ip-osoitteeseen. CNAME-tietueen osoitin kotiosoitteeseen arileppanen.me.
+
+![image](https://github.com/user-attachments/assets/a508e596-f064-493a-9ffa-37558477d00d)
+
+
 ## Tehtävä e)
+
+### Host
+
+Host google.com ei palauttanut mitään. Pikaisen googlaamisen tuloksena sain selville että palvelu täytyy asentaa.
+
+`sudo apt update && sudo apt install dnsutils`
+
+Tämän jälkeen alkoi tulla tuloksia. ajoin komennon `host google.com`
+
+![image](https://github.com/user-attachments/assets/366911d9-405f-43cf-8314-87aa49417aaf)
+
+Tulosteessa näkyy IPv4 osoite, IPv6 osoite ja "google.com mail is handled by 10 smtp.google.com".
+
+### Dig
+
+![image](https://github.com/user-attachments/assets/a3fe58fe-f695-41d6-a301-580e1a4373c6)
+
+
 
 ## Lähteet
