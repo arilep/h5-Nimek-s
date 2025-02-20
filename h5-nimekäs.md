@@ -86,6 +86,9 @@ Alidomainit. Loin A-tietueen blog.arileppanen.me osoittamaan palvelimen ip-osoit
 
 ![image](https://github.com/user-attachments/assets/a508e596-f064-493a-9ffa-37558477d00d)
 
+Tämän jälkeen lisäsin aliakset, jotta uudet osoitteet toimivat.
+
+![image](https://github.com/user-attachments/assets/539a581d-5550-4b21-a155-2bd2e996074c)
 
 ## Tehtävä e)
 
