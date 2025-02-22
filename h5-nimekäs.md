@@ -32,21 +32,23 @@ Kirjauduin NameCheap palveluun luomillani käyttäjätunnuksilla, josta domain n
 
 ![image](https://github.com/user-attachments/assets/3863674b-d7f9-4e16-bc83-1b6da111eaed)
 
-Listalla oli valmiiksi neljä 'A Record' -tiedostoa sekä 'CNAME Record' -tiedosto, joille ei ole käyttöä. Poistin tiedostot ja loin uudet tiedostot 'Add New Record' -painikkeesta.
-Tiedostot ohjaavat domain nimen virtuaalipalvelimen ip-osoitteeseen.
+Listalla oli valmiiksi neljä 'A Record' -tietuetta sekä 'CNAME Record' -tietue, joille ei ole käyttöä. Poistin tietueet ja loin uudet tietueet 'Add New Record' -painikkeesta.
+Tietueet ohjaavat domain nimen virtuaalipalvelimen IP-osoitteeseen.
 
 ![image](https://github.com/user-attachments/assets/699c92fe-d912-441f-a04b-3d410f8c620c)
 
 
 ## Tehtävä b)
 
+Ensiksi loin uuden hakemistopolun arileppanen.me -sivustolle.
+
 ![image](https://github.com/user-attachments/assets/d9fa9f83-2c9c-4daa-a650-b51b3c2c57ed)
 
-luodaan index.html tiedosto ja lisätään pätkä html koodia testausta varten. `micro index.html`
+loin index.html tiedoston ja lisäsin pätkän html koodia testausta varten. `micro index.html`
 
 ![image](https://github.com/user-attachments/assets/14ce1efc-fcd8-401c-941a-d41df256a06f)
 
-`sudo nano /etc/apache2/sites-available/arileppanen.me.conf`
+Seuraavaksi konfiguraatio tiedoston määritykset. `sudo nano /etc/apache2/sites-available/arileppanen.me.conf`
 
 ![image](https://github.com/user-attachments/assets/1379c552-6240-496a-8ddf-6709fa53f588)
 
@@ -79,35 +81,69 @@ Lisäsin linkit sivulta toiselle. Tämä tapahtuu elementeillä 'nav'. Lisäsin 
 
 ![image](https://github.com/user-attachments/assets/771729d1-fb0b-4a17-8bbd-bae3219fabf2)
 
+Tehtävänannon mukaan sivuja pitää pystyä vielä muokkaamaan ilman pääkäyttäjän oikeuksia, joten lisäsin vielä oikeudet.
+
+`chmod o+w *.html` eli 'others' käyttäjille kirjoitus 'write' oikeudet, *.html -> kaikkiin .html -päättyviin tiedostoihin kyseisessä hakemistossa.
+
+![image](https://github.com/user-attachments/assets/5efc9042-78a1-4aa7-b9ee-260454d7122e)
 
 ## Tehtävä d)
 
-Alidomainit. Loin A-tietueen blog.arileppanen.me osoittamaan palvelimen ip-osoitteeseen. CNAME-tietueen osoitin kotiosoitteeseen arileppanen.me.
+Alidomainit. Loin A-tietueen blog.arileppanen.me osoittamaan palvelimen IP-osoitteeseen. CNAME-tietueen osoitin kotiosoitteeseen arileppanen.me, sillä CNAME-tietue ei voi osoittaa IP-osoitteeseen.
 
 ![image](https://github.com/user-attachments/assets/a508e596-f064-493a-9ffa-37558477d00d)
 
-Tämän jälkeen lisäsin aliakset, jotta uudet osoitteet toimivat.
+Seuraavaksi lisäsin VirtualHost lohkot vielä blog.arileppanen.me & projects.arileppanen.me sivustoille. 
 
-![image](https://github.com/user-attachments/assets/539a581d-5550-4b21-a155-2bd2e996074c)
+![image](https://github.com/user-attachments/assets/cf8e4c1a-a34c-40ee-b926-51e32ef9fda1)
+
+Sivustot eivät kyseisellä hetkellä vielä auenneet, oletan että DNS:n kanssa on viivettä.
 
 ## Tehtävä e)
 
 ### Host
+- DNS nimikysely, joka palauttaa sivustolta mm. IPv4-osoitteen, IPv6-osoitteen sekä sähköpostiliikenteen palvelimen.
 
-Host google.com ei palauttanut mitään. Pikaisen googlaamisen tuloksena sain selville että palvelu täytyy asentaa.
+### Dig
+- Ajaa saman asian kuin 'host', mutta tarjoaa enemmän ja tarkempaa tietoa.
+
+      - Esimerkiksi 'ANSWER SECTION' -osio seuraavassa kuvassa:
+      - 1. sarake: palvelimen nimi (google.com)
+      - 2. sarake: aikaraja, jonka jälkeen tietue päivitetään (212)
+      - 3. sarake: kyselyluokka (IN = Internet)
+      - 4. sarake: kyselytyyppi (A = Address record)
+      - 5. sarake: verkkotunnuksen kanssa liitetty IP-osoite (216.58.209.206)
+
+Aloitin testauksen. Host google.com ei palauttanut mitään. Pikaisen googlaamisen tuloksena selvisi että palvelu on asentamatta, joten:
 
 `sudo apt update && sudo apt install dnsutils`
 
-Tämän jälkeen alkoi tulla tuloksia. ajoin komennon `host google.com`
+Tämän jälkeen alkoi tulla tuloksia. Testasin ja ajoin komennot `host google.com` ja `dig google.com`
 
-![image](https://github.com/user-attachments/assets/366911d9-405f-43cf-8314-87aa49417aaf)
+![image](https://github.com/user-attachments/assets/4e0b2bcc-faca-4c6c-b9f5-14d9eaba1e01)
 
-Tulosteessa näkyy IPv4 osoite, IPv6 osoite ja "google.com mail is handled by 10 smtp.google.com".
+Tämän jälkeen ajoin 'host' ja 'dig' komennot omalle sivulleni.
 
-### Dig
+![image](https://github.com/user-attachments/assets/8083daec-8ac3-4707-a727-a02b5321ccd0)
 
-![image](https://github.com/user-attachments/assets/a3fe58fe-f695-41d6-a301-580e1a4373c6)
+Ja lopuksi vielä Tero Karvisen sivut:
+
+![image](https://github.com/user-attachments/assets/b286cd0f-acae-4036-bcb0-5f04aca96f7d)
+
 
 
 
 ## Lähteet
+Karvinen, T. 3.12.2024. Linux Palvelimet 2025 alkukevät. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu 19.2.2025.
+
+Lehto, S. 14.2.2022. Teoriasta käytäntöön pilvipalvelimen avulla (h4). Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu 19.2.2025.
+
+NameCheap. s.a. Buy a domain name. Luettavissa: https://www.namecheap.com/. Luettu 19.2.2025.
+
+GitHub. s.a. GitHub Student Developer Pack. Luettavissa: https://education.github.com/pack. Luettu 19.2.2025.
+
+CloudFlare. s.a. What is a DNS CNAME record? Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/. Luettu 20.2.2025.
+
+Medium. 22.2.2021. How to install nslookup, dig, host commands in Linux. Luettavissa: https://tranzservrsupprtz123.medium.com/how-to-install-nslookup-dig-host-commands-in-linux-3510dac46d99. Luettu 20.2.2025.
+
+Zivanov, S. 23.5.2024. dig Command in Linux with Examples. Luettavissa: https://phoenixnap.com/kb/linux-dig-command-examples. Luettu 22.2.2025.
