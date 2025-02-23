@@ -89,15 +89,17 @@ Tehtävänannon mukaan sivuja pitää pystyä vielä muokkaamaan ilman pääkäy
 
 ## Tehtävä d)
 
-Alidomainit. Loin A-tietueen blog.arileppanen.me osoittamaan palvelimen IP-osoitteeseen. CNAME-tietueen osoitin kotiosoitteeseen arileppanen.me, sillä CNAME-tietue ei voi osoittaa IP-osoitteeseen.
+Lisäsin uuden A-tietueen (Type: A Record Host: blog Value: 94.237.114.9), osoitetta blog.arileppanen.me varten.
 
-![image](https://github.com/user-attachments/assets/a508e596-f064-493a-9ffa-37558477d00d)
+CNAME-tietueen (alias) osoitin kotiosoitteeseen arileppanen.me.
+
+![image](https://github.com/user-attachments/assets/3f6031c8-ccce-4e99-a48f-359e024d2f1f)
 
 Seuraavaksi lisäsin VirtualHost lohkot vielä blog.arileppanen.me & projects.arileppanen.me sivustoille. 
 
 ![image](https://github.com/user-attachments/assets/cf8e4c1a-a34c-40ee-b926-51e32ef9fda1)
 
-Sivustot eivät kyseisellä hetkellä vielä auenneet, oletan että DNS:n kanssa on viivettä.
+
 
 ## Tehtävä e)
 
