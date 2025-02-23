@@ -32,7 +32,7 @@ Kirjauduin NameCheap palveluun luomillani käyttäjätunnuksilla, josta domain n
 
 ![image](https://github.com/user-attachments/assets/3863674b-d7f9-4e16-bc83-1b6da111eaed)
 
-Listalla oli valmiiksi neljä 'A Record' -tietuetta sekä 'CNAME Record' -tietue, joille ei ole käyttöä. Poistin tietueet ja loin uudet tietueet 'Add New Record' -painikkeesta.
+Listalla oli valmiiksi neljä 'A Record' -tietuetta sekä 'CNAME Record' -tietue. Aloitin puhtaalta pöydältä ja poistin tietueet ja loin uudet tietueet 'Add New Record' -painikkeesta.
 Tietueet ohjaavat domain nimen virtuaalipalvelimen IP-osoitteeseen.
 
 ![image](https://github.com/user-attachments/assets/699c92fe-d912-441f-a04b-3d410f8c620c)
@@ -91,7 +91,7 @@ Tehtävänannon mukaan sivuja pitää pystyä vielä muokkaamaan ilman pääkäy
 
 Lisäsin uuden A-tietueen (Type: A Record Host: blog Value: 94.237.114.9), osoitetta blog.arileppanen.me varten.
 
-CNAME-tietueen (alias) osoitin kotiosoitteeseen arileppanen.me.
+CNAME-tietueen (projects) osoitin kotiosoitteeseen arileppanen.me.
 
 ![image](https://github.com/user-attachments/assets/3f6031c8-ccce-4e99-a48f-359e024d2f1f)
 
@@ -99,7 +99,7 @@ Seuraavaksi lisäsin VirtualHost lohkot vielä blog.arileppanen.me & projects.ar
 
 ![image](https://github.com/user-attachments/assets/cf8e4c1a-a34c-40ee-b926-51e32ef9fda1)
 
-
+Molemmat osoitteet blog.arileppanen.me ja projects.arileppanen.me näyttivät toimivan.
 
 ## Tehtävä e)
 
